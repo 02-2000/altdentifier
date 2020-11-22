@@ -1,3 +1,4 @@
+#import things
 import asyncio
 import datetime
 import random
@@ -28,13 +29,13 @@ async def status_task():
 
 @client.event
 async def on_member_join(member):
-    days = 7
+    created_at_days = 7
     channel_id = 123
     server_id = 123
     server = member.guild
     user = list(member1.bot for member1 in home.members if member1.bot is False)
     member_days = (datetime.now() - member.created_at).days
-    if days >= member_days:
+    if created_at_days >= member_days:
         member_passed1 = (datetime.now() - member.joined_at).days
         member_created1 = (datetime.now() - member.created_at).days
         embed = discord.Embed(title="{}'s info".format(member.name),
@@ -51,8 +52,8 @@ async def on_member_join(member):
         channel = client.get_channel(channel_id)
         await channel.send(embed=embed)
         if server.id == server_id: 
-                role1 = server.get_role(734732831409963149)
-                await member.add_roles(role1)
+                role = server.get_role(734732831409963149)
+                await member.add_roles(role)
                 embed = discord.Embed(title=f"Hi {member}!",
                                           description="Your account is new to discord! You have been added in a security control.",color=discord.Color.red())
                 try:
