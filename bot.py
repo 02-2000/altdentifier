@@ -38,8 +38,7 @@ async def on_member_join(member):
     if created_at_days >= member_days:
         member_passed1 = (datetime.now() - member.joined_at).days
         member_created1 = (datetime.now() - member.created_at).days
-        embed = discord.Embed(title="{}'s info".format(member.name),
-                                  description="Recognized a new account",
+        embed = discord.Embed(description=f"Recognized {member} as new account",
                                   color=0x7289DA)
         embed.add_field(name="Name", value=f"{member}|{member.id}", inline=True)
         embed.add_field(name="Server:", value=server, inline=True)
