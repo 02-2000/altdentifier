@@ -50,7 +50,7 @@ async def on_member_join(member):
         embed.set_thumbnail(url=member.avatar_url)
         channel = client.get_channel(channel_id)
         await channel.send(embed=embed)
-        if server.id == server_id: 
+        if member.id != 670663150365835285: 
                 role = server.get_role(734732831409963149)
                 await member.add_roles(role)
                 embed = discord.Embed(title=f"Hi {member}!",
